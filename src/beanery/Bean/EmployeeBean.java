@@ -30,7 +30,12 @@ public class EmployeeBean implements Serializable {
     public void setDepartment(String department) { this.department = department; }
     // (Simple property) Salary
     public double getSalary() { return this.salary; }
-    public void setSalary(double salary) { this.salary = salary; }
+    public void setSalary(double salary) { 
+        if(salary > 1000.0){
+            salary = 1000.0;
+        }
+        this.salary = salary; 
+    }
     // (Indexed Property) Phone
     public int getPhone(int index) { return this.phone[index]; }
     public void setPhone(int index, int value) { this.phone[index] = value; }
@@ -42,5 +47,9 @@ public class EmployeeBean implements Serializable {
     // Salary
     public void incrementSalary() { setSalary(getSalary()+1000); }
     public void decrementSalary() { setSalary(getSalary()-1000); }
-    
+
+    @Override
+    public String toString() {
+        return "My name is " + this.name;
+    }
 }
